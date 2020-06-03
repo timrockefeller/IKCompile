@@ -1,0 +1,8 @@
+# CMake output folder
+build
+
+# Default target folder
+bin
+
+# Vscode custom settings
+.vscode
