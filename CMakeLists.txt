@@ -22,5 +22,4 @@ link_directories (
     # ...
 )
 
-IK_AddSubDirsRec(src)
-IK_AddSubDirsRec(src/lib)
+IK_AddSubDirsRec("src")
