@@ -9,7 +9,9 @@ IK_UnityArgs(STR_TARGET_SOURCES
     "${PROJECT_SOURCE_DIR}/include/PL0/PL0Grammar.h"
     "${PROJECT_SOURCE_DIR}/include/PL0/PL0Patterns.h"
     "ASTBuild.cpp"
+    "PL0Pattern.cpp"
 )
+message(STATUS ${STR_TARGET_SOURCES})
 IK_UnityArgs(STR_TARGET_LIBS
     # libs
 )

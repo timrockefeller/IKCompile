@@ -11,11 +11,10 @@ class Token {
     T token;
     size_t length;
     std::string strval;
-    int intval;
-    float floatval;
-    friend std::ostream& operator<<(std::ostream& os, const Token<T>& to){
-    os << to.token << ":" << to.strval << '\n';
-    return os;
-}
+    int intval = 0;
+    float floatval = 0;
+    friend std::ostream& operator<<(std::ostream& os, const Token& to) {
+        return os << to.strval << '\n';
+    }
 };
 }  // namespace IKCL
