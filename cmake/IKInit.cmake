@@ -9,7 +9,7 @@ macro(IK_InitProject PROJECT_NAME_STR)
 message(STATUS "[IKCmake] ${IKCMAKE_VERSION}")
 set(PROJECT_NAME ${PROJECT_NAME_STR})
 IK_InitConfig()
-project(${PROJECT_NAME} VERSION 0.1.0 LANGUAGES C CXX)
+cmake_minimum_required(VERSION ${CMAKE_MINIMIN_VERSION})
 # The version number.
 set (${PROJECT_NAME}_VERSION_MAJOR 1)
 set (${PROJECT_NAME}_VERSION_MINOR 0)
