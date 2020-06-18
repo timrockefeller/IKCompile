@@ -1,7 +1,10 @@
 #pragma once
+#include <Compiler/Pattern.h>
+
 #include <regex>
 #include <string>
 #include <vector>
+namespace IKCL {
 enum PL0Pattern {
     VAR,
     CONST,
@@ -33,16 +36,7 @@ enum PL0Pattern {
     WHITESPACE
 };
 
-struct Pattern {
-    Pattern(PL0Pattern t, std::regex r) {
-        type = t;
-        rep = r;
-    }
-    PL0Pattern type;
-    std::regex rep;
-};
-
-std::vector<Pattern> Patterns = {
+std::vector<Pattern<PL0Pattern>> Patterns = {
     Pattern(VAR, std::regex("VAR")),
     Pattern(CONST, std::regex("CONST")),
     Pattern(PROCEDURE, std::regex("PROCEDURE")),
@@ -70,5 +64,5 @@ std::vector<Pattern> Patterns = {
     Pattern(COMMA, std::regex(",")),
     Pattern(PERIOD, std::regex("\.")),
     Pattern(SEMICOLON, std::regex(";")),
-    Pattern(WHITESPACE, std::regex("\s"))
-    }
+    Pattern(WHITESPACE, std::regex("\s"))};
+}  // namespace IKCL
