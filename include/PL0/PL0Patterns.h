@@ -49,11 +49,11 @@ std::vector<Pattern<PL0Pattern>> PL0Patterns = {
     Pattern<PL0Pattern>(NUMBER, std::regex("[0-9]+")),
     Pattern<PL0Pattern>(ASSIGNMENT, std::regex(":=")),
     Pattern<PL0Pattern>(WRITE, std::regex("!")),
-    Pattern<PL0Pattern>(LPAREN, std::regex("\(")),
-    Pattern<PL0Pattern>(RPAREN, std::regex("\)")),
-    Pattern<PL0Pattern>(MULT, std::regex("\*")),
-    Pattern<PL0Pattern>(DIV, std::regex("\"))")),
-    Pattern<PL0Pattern>(PLUS, std::regex("\+")),
+    Pattern<PL0Pattern>(LPAREN, std::regex("\\(")),
+    Pattern<PL0Pattern>(RPAREN, std::regex("\\)")),
+    Pattern<PL0Pattern>(MULT, std::regex("\\*")),
+    Pattern<PL0Pattern>(DIV, std::regex("\\\\")),
+    Pattern<PL0Pattern>(PLUS, std::regex("\\+")),
     Pattern<PL0Pattern>(MINUS, std::regex("-")),
     Pattern<PL0Pattern>(EQ, std::regex("=")),
     Pattern<PL0Pattern>(NE, std::regex("#")),
@@ -62,7 +62,7 @@ std::vector<Pattern<PL0Pattern>> PL0Patterns = {
     Pattern<PL0Pattern>(LT, std::regex("<")),
     Pattern<PL0Pattern>(GT, std::regex(">")),
     Pattern<PL0Pattern>(COMMA, std::regex(",")),
-    Pattern<PL0Pattern>(PERIOD, std::regex("\.")),
+    Pattern<PL0Pattern>(PERIOD, std::regex("\\.")),
     Pattern<PL0Pattern>(SEMICOLON, std::regex(";")),
-    Pattern<PL0Pattern>(WHITESPACE, std::regex("\s"))};
+    Pattern<PL0Pattern>(WHITESPACE, std::regex("\\s"))};
 }  // namespace IKCL

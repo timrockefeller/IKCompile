@@ -7,7 +7,7 @@ IK_UnityArgs(STR_TARGET_SOURCES
     "${PROJECT_SOURCE_DIR}/include/Compiler/Token.h"
     "${PROJECT_SOURCE_DIR}/include/PL0/ASTBuild.h"
     "${PROJECT_SOURCE_DIR}/include/PL0/PL0Grammar.h"
-    "${PROJECT_SOURCE_DIR}/include/PL0/PL0Tokens.h"
+    "${PROJECT_SOURCE_DIR}/include/PL0/PL0Patterns.h"
     "ASTBuild.cpp"
 )
 IK_UnityArgs(STR_TARGET_LIBS

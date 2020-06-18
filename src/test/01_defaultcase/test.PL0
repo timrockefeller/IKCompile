@@ -1,0 +1,15 @@
+VAR x, sqr, temp;
+PROCEDURE square;
+BEGIN
+   sqr:= x * x
+END;
+
+BEGIN
+	x := 1;
+	WHILE x <= 10 DO
+	BEGIN
+		CALL square;
+		! sqr;
+		x := x + 1
+	END
+END.

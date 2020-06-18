@@ -7,10 +7,7 @@ namespace IKCL {
  * */    
 template <typename T>
 struct Pattern {
-    Pattern(T tokentype, std::regex regexpattern) {
-        type = tokentype;
-        rep = regexpattern;
-    }
+    Pattern(T tokentype, std::regex regexpattern):type(tokentype),rep(regexpatter);
     T type;
     std::regex rep;
 };

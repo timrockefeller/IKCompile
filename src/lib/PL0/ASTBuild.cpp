@@ -3,18 +3,18 @@
 #include <Compiler/Token.h>
 #include <PL0/ASTBuild.h>
 #include <PL0/PL0Grammar.h>
-#include <PL0/PL0Tokens.h>
+#include <PL0/PL0Patterns.h>
 using namespace std;
 using namespace IKCL;
 
-vector<Token<PL0Pattern>> ASTBuild::Tokenizer(string input, bool ignoreWhitespace) {
+PL0Tokens ASTBuild::Tokenizer(string input, bool ignoreWhitespace) {
     size_t cur = 0;
     const size_t LENGTH = input.length();
 
     char* origin = new char[LENGTH];
     memcmp(origin, input.c_str(), LENGTH);
 
-    vector<Token<PL0Pattern>> result;
+    PL0Tokens result;
 
     while (cur < LENGTH) {
         bool tokenized = false;
@@ -43,7 +43,9 @@ vector<Token<PL0Pattern>> ASTBuild::Tokenizer(string input, bool ignoreWhitespac
             throw "Unrecognized token at:" + string(origin + cur).substr(0, 10);
         }
     }
+    return result;
 }
 
-ASTNode<PL0ASTType> ASTBuild::Parser(vector<Token<PL0Pattern>>) {
+PL0AST ASTBuild::Parser(PL0Tokens) {
+    return PL0AST();
 }
