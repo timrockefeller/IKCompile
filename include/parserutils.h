@@ -2,7 +2,7 @@
 #include <map>
 #include <unordered_map>
 #include <unordered_set>
-namespace IKC {
+namespace IKCL {
 using Grim = std::unordered_map<int, std::vector<std::vector<int>>>;
 using Usi = std::unordered_set<int>;
 using Miu = std::map<int, Usi>;

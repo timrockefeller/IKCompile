@@ -2,12 +2,14 @@
 
 namespace IKCL {
 
-class ASTNode {
-   private:
-    /* data */
-   public:
-    ASTNode(/* args */);
-    ~ASTNode();
+template <typename T>
+struct ASTNode {
+    ASTNode(T tokentype, std::regex regexpattern) {
+        type = tokentype;
+        rep = regexpattern;
+    }
+    T type;
+    std::regex rep;
 };
 
 }  // namespace IKCL

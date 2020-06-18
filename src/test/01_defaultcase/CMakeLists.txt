@@ -7,5 +7,6 @@ IK_UnityArgs(STR_TARGET_SOURCES
 )
 IK_UnityArgs(STR_TARGET_LIBS
     # libs
+    "PL0"
 )
 IK_SetupProject(${MODE} ${TARGET_NAME} ${STR_TARGET_SOURCES} ${STR_TARGET_LIBS})
