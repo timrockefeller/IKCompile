@@ -5,7 +5,7 @@
 #include <vector>
 //定义文法类，保存文法个数和记录所有文法
 const unsigned int N = 100;
-namespace IKC {
+namespace IKCL {
 
 class Grammar {
    public:
