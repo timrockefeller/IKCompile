@@ -12,7 +12,7 @@ namespace IKCL {
 
 class ASTBuild {
    public:
-    static std::vector<Token> Tokenizer(std::string input, bool ignoreWhitespace = false);
-    static ASTNode<PL0ASTType> Parser(std::vector<Token>);
+    static std::vector<Token<PL0Pattern>> Tokenizer(std::string input, bool ignoreWhitespace = false);
+    static ASTNode<PL0ASTType> Parser(std::vector<Token<PL0Pattern>>);
 };
 }  // namespace IKCL

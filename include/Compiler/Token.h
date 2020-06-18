@@ -3,14 +3,13 @@
 #include <string>
 
 namespace IKCL {
+template <typename T>
 class Token {
    private:
     /* data */
    public:
-    Token(/* args */);
-    ~Token();
-    std::string token;
-    int length;
+    T token;
+    size_t length;
     std::string strval;
     int intval;
     float floatval;
