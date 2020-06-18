@@ -3,7 +3,6 @@
 #include <string>
 
 namespace IKCL {
-
 class Token {
    private:
     /* data */
