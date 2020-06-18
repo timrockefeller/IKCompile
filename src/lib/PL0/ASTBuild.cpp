@@ -18,7 +18,7 @@ PL0Tokens ASTBuild::Tokenizer(string input, bool ignoreWhitespace) {
 
     while (cur < LENGTH) {
         bool tokenized = false;
-        for (Pattern<PL0Pattern> pattern : PL0Patterns) {
+        for (Pattern<PL0Pattern> pattern : PL0PatternReg) {
             cmatch rerResult;
             bool bValid = regex_match(origin + cur, rerResult, pattern.rep);
             if (bValid && rerResult.position() == 0) {

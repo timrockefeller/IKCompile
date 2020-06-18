@@ -36,7 +36,7 @@ enum PL0Pattern {
     WHITESPACE
 };
 
-std::vector<Pattern<PL0Pattern>> PL0Patterns = {
+std::vector<Pattern<PL0Pattern>> PL0PatternReg = {
     Pattern<PL0Pattern>(VAR, std::regex("VAR")),
     Pattern<PL0Pattern>(CONST, std::regex("CONST")),
     Pattern<PL0Pattern>(PROCEDURE, std::regex("PROCEDURE")),
