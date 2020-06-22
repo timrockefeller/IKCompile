@@ -36,7 +36,8 @@ PL0Tokens ASTBuild::Tokenizer(string input, bool ignoreWhitespace) {
                         token.floatval = stof(strval);
                     } catch (const std::invalid_argument&) {
                     } catch (const std::out_of_range&) {
-                    } catch (const std::exception&){}
+                    } catch (const std::exception&) {
+                    }
                     result.push_back(token);
                 }
                 cur += strlength;
@@ -52,4 +53,32 @@ PL0Tokens ASTBuild::Tokenizer(string input, bool ignoreWhitespace) {
 
 PL0AST ASTBuild::Parser(PL0Tokens) {
     return PL0AST();
+}
+
+bool ASTBuild::accept(PL0Pattern token) {
+    if (curToken.token == token) {
+		nextToken();
+		return true;
+	}
+
+	return false;
+}
+bool ASTBuild::expect(PL0Pattern token) {
+    if (!accept(token))
+        throw "unexpected symbol:";  // TODO
+    return true;
+}
+/**
+ * Get previous tokens without changing curToken
+ */
+PL0Token ASTBuild::prevToken(int n) {
+	return allTokens[curIndex - n - 2];
+}
+
+/**
+ *  Take the next token off the front of the list
+ */
+void ASTBuild::nextToken() {
+	curToken = allTokens[curIndex];
+	curIndex++;
 }
