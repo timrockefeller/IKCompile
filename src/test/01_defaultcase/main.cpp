@@ -13,8 +13,8 @@ int main() {
             for (Token<PL0Pattern> t : rc) {
                 cout << t;
             }
-        } catch (const std::exception& e) {
-            std::cerr << "[!!] Unexpected Token at :" << e.what() << '\n';
+        } catch (string e) {
+            std::cout << "[!!] Unexpected Token at :" << e << '\n';
         }
     } else {
         cout << "cant open file" << endl;
