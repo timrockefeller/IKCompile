@@ -11,3 +11,5 @@ Stepping to Universal Complier.
   - [ ] Arrange Code Logic
 - [ ] Parser
 - [ ] Emiter
+
+## Soooooo hard

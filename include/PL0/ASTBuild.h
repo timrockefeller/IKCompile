@@ -43,18 +43,24 @@ using PL0Tokens = std::vector<PL0Token>;
 using PL0AST = ASTNode<PL0ASTType>;
 class ASTBuild {
    private:
-    PL0Token curToken;
-    int curIndex;
-    PL0Tokens allTokens;
+    static PL0Token curToken;
+    static int curIndex;
+    static PL0Tokens allTokens;
 
-    bool accept(PL0Pattern);
-    bool expect(PL0Pattern);
-    PL0Token prevToken(int = 0);
-    void nextToken();
+    static bool accept(PL0Pattern);
+    static bool expect(PL0Pattern);
+    static PL0Token prevToken(int = 0);
+    static void nextToken();
 
     // parser
+    static ProgramNode parseProgram();
+    static BlockNode parseBlock();
+    static ASTNode<PL0ASTType> parseStatement();
+    static ExpressionNode parseExpression();
+    static ASTNode<PL0ASTType> parseCondition();
 
    public:
+    static void Init();
     static PL0Tokens Tokenizer(std::string input, bool ignoreWhitespace = false);
     static PL0AST Parser(PL0Tokens);
 };

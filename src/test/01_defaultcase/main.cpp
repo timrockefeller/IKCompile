@@ -10,9 +10,10 @@ int main() {
     if (file.IsValid()) {
         try {
             PL0Tokens rc = ASTBuild::Tokenizer(file.ReadAll(), true);
-            for (Token<PL0Pattern> t : rc) {
-                cout << t;
-            }
+            // for (Token<PL0Pattern> t : rc) {
+            //     cout << t;
+            // }
+            PL0AST p = ASTBuild::Parser(rc);
         } catch (string e) {
             std::cout << "[!!] Unexpected Token at :" << e << '\n';
         }
