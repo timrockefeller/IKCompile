@@ -15,6 +15,7 @@ int main() {
             //     cout <<i++<<"\t"<< t;
             // }
             PL0AST p = ASTBuild::Parser(rc);
+            cout << "[v] parse completed" << endl;
         } catch (string e) {
             std::cout << e << '\n';
         }
