@@ -1,6 +1,6 @@
 #pragma once
 #include <Compiler/Pattern.h>
-
+#include <string>
 #include <vector>
 namespace IKCL {
 enum PL0Pattern {
@@ -36,7 +36,7 @@ enum PL0Pattern {
     SEMICOLON,
     WHITESPACE
 };
-
+extern std::vector<std::string> PL0Pattern_s;
 extern std::vector<Pattern<PL0Pattern>> PL0PatternReg;
 
 }  // namespace IKCL
