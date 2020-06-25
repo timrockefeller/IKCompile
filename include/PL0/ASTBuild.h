@@ -59,6 +59,9 @@ class ASTBuild {
     static ExpressionNode parseExpression();
     static ASTNode<PL0ASTType> parseCondition();
 
+    static void parseFactor();
+    static void parseTerm();
+
    public:
     static void Init();
     static PL0Tokens Tokenizer(std::string input, bool ignoreWhitespace = false);

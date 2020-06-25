@@ -6,7 +6,9 @@
 #include <PL0/PL0Patterns.h>
 using namespace std;
 using namespace IKCL;
-
+PL0Token ASTBuild::curToken = PL0Token();
+int ASTBuild::curIndex = 0;
+PL0Tokens ASTBuild::allTokens = PL0Tokens();
 PL0Tokens ASTBuild::Tokenizer(string input, bool ignoreWhitespace) {
     size_t cur = 0;
     const size_t LENGTH = input.length();
@@ -45,7 +47,7 @@ PL0Tokens ASTBuild::Tokenizer(string input, bool ignoreWhitespace) {
             }
         }
         if (!tokenized) {
-            throw string(origin + cur).substr(0, 10);
+            throw "[!!] Unexpected Token at :" + string(origin + cur).substr(0, 10);
         }
     }
     return result;
@@ -116,7 +118,7 @@ BlockNode ASTBuild::parseBlock() {
             SymbolNode s;
             s.isConst = false;
             pair<string, SymbolNode> sr(prevToken().strval, s);
-            
+
             astnode.symbol.insert(sr);
         } while (accept(COMMA));
         expect(SEMICOLON);
@@ -144,7 +146,7 @@ ASTNode<PL0ASTType> ASTBuild::parseStatement() {
         expect(ASSIGNMENT);
         AssignmentNode a;
         a.identifier = prevToken(1).strval;
-        // a.expression = parseExpression();
+        parseExpression();
         astNode = (ASTNode<PL0ASTType>)a;
     } else if (accept(CALL)) {
         expect(IDENTIFIER);
@@ -152,7 +154,7 @@ ASTNode<PL0ASTType> ASTBuild::parseStatement() {
         a.identifier = prevToken().strval;
         astNode = (ASTNode<PL0ASTType>)a;
     } else if (accept(WRITE)) {
-        // parseExpression();
+        parseExpression();
         WriteNode a;
         a.identifier = prevToken().strval;
         astNode = (ASTNode<PL0ASTType>)a;
@@ -176,23 +178,58 @@ ASTNode<PL0ASTType> ASTBuild::parseStatement() {
         a.statement = parseStatement();
         astNode = (ASTNode<PL0ASTType>)a;
     } else {
-        throw "syntax error: " + curToken.strval;
+        throw "[!!] syntax error: " + curToken.strval;
     }
 
     return astNode;
 }
 ASTNode<PL0ASTType> ASTBuild::parseCondition() {
-    ASTNode<PL0ASTType> astNode = parseExpression();
+    ASTNode<PL0ASTType> astNode = ASTNode<PL0ASTType>();
 
     if (accept(ODD)) {
+        parseExpression();
     } else {
-        if (curToken.token == EQ || curToken.token == NE || curToken.token == LT || curToken.token == LE || curToken.token == GT || curToken.token == GE) {
+        parseExpression();
+        if (accept(EQ) ||
+            accept(NE) ||
+            accept(LT) ||
+            accept(LE) ||
+            accept(GT) ||
+            accept(GE)) {
+            parseExpression();
         } else {
-            throw "condition: invalid operator: " + curToken.strval;
+            throw "[!!] condition: invalid operator: " + curToken.strval;
         }
     }
     return astNode;
 }
-void ASTBuild::Init(){
+void ASTBuild::parseFactor() {
+    if (accept(IDENTIFIER)) {
+    } else if (accept(NUMBER)) {
+    } else if (accept(LPAREN)) {
+        parseExpression();
+        expect(RPAREN);
+    } else {
+        throw "[!!] syntax error: " + curToken.strval;
+    }
+}
+
+void ASTBuild::parseTerm() {
+    parseFactor();
+    while (accept(MULT) || accept(DIV)) {
+        parseFactor();
+    }
+}
+ExpressionNode ASTBuild::parseExpression() {
+    if (accept(PLUS) || accept(MINUS)) {
+    }
+    parseTerm();
+    while (accept(PLUS) || accept(MINUS)) {
+        parseTerm();
+    }
+    return ExpressionNode();
+}
+
+void ASTBuild::Init() {
     curIndex = 0;
 }
