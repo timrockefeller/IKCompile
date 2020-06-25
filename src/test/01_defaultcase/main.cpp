@@ -10,12 +10,13 @@ int main() {
     if (file.IsValid()) {
         try {
             PL0Tokens rc = ASTBuild::Tokenizer(file.ReadAll(), true);
+            int i = 0;
             // for (Token<PL0Pattern> t : rc) {
-            //     cout << t;
+            //     cout <<i++<<"\t"<< t;
             // }
             PL0AST p = ASTBuild::Parser(rc);
         } catch (string e) {
-            std::cout << "[!!] Unexpected Token at :" << e << '\n';
+            std::cout << e << '\n';
         }
     } else {
         cout << "cant open file" << endl;
