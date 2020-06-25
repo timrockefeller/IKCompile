@@ -66,5 +66,6 @@ class ASTBuild {
     static void Init();
     static PL0Tokens Tokenizer(std::string input, bool ignoreWhitespace = false);
     static PL0AST Parser(PL0Tokens);
+    static int getCurIndex();
 };
 }  // namespace IKCL

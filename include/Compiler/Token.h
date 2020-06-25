@@ -14,7 +14,7 @@ class Token {
     int intval = 0;
     float floatval = 0;
     friend std::ostream& operator<<(std::ostream& os, const Token& to) {
-        return os << to.token <<":"<< to.strval << '\n';
+        return os << to.token <<"\t|"<< to.strval;
     }
 };
 }  // namespace IKCL

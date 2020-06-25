@@ -229,7 +229,9 @@ ExpressionNode ASTBuild::parseExpression() {
     }
     return ExpressionNode();
 }
-
+int ASTBuild::getCurIndex(){
+    return curIndex;
+}
 void ASTBuild::Init() {
     curIndex = 0;
 }

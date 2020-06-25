@@ -1,6 +1,6 @@
 ## For main extry file project
 set(MODE "EXE")
-set(TARGET_NAME "ikcl-cli")
+set(TARGET_NAME "ikcl-pl0")
 IK_UnityArgs(STR_TARGET_SOURCES
     # sources, headfiles
     "main.cpp"
