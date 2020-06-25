@@ -2,6 +2,7 @@
 #include <Utils/Utils.h>
 #include <windows.h>
 
+#include <iomanip>
 #include <iostream>
 using namespace std;
 using namespace IKCL;
@@ -27,13 +28,17 @@ int main(int argc, char* argv[]) {
                 try {
                     PL0Tokens rc = ASTBuild::Tokenizer(file.ReadAll(), true);
                     int i = 0;
-                    cout << "no"
-                         << "\t|"
-                         << "type"
-                         << "\t|"
+                    cout << setw(4) << "no"
+                         << "|"
+                         << setw(10) << "type"
+                         << "|"
                          << "src" << endl;
+                    cout << "----+----------+-----" << endl;
                     for (Token<PL0Pattern> t : rc) {
-                        cout << i++ << "\t|" << t << endl;
+                        cout << setw(4) << i++
+                             << "|"
+                             << setw(10) << PL0Pattern_s[t.token]
+                             << "|" << t << endl;
                     }
                 } catch (string e) {
                     std::cout << e << '\n';
@@ -51,7 +56,7 @@ int main(int argc, char* argv[]) {
                     cout << "[v] parse completed" << endl;
                 } catch (string e) {
                     std::cout << e << '\n';
-                    std::cout << "on token " << ASTBuild::getCurIndex() <<endl;
+                    std::cout << "on token " << ASTBuild::getCurIndex() << endl;
                     std::cout << "use \"tok\" command for more info." << endl;
                 }
             } else {

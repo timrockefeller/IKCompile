@@ -44,50 +44,51 @@ $ ./bin/ikcl-pl0.exe tok asset/test.PL0
 ```
 output:
 ```
-no      |type   |src
-0       |0      |VAR
-1       |8      |x
-2       |27     |,
-3       |8      |sqr
-4       |27     |,
-5       |8      |temp
-6       |29     |;
-7       |2      |PROCEDURE
-8       |8      |square
-9       |29     |;
-10      |6      |BEGIN
-11      |8      |sqr
-12      |10     |:=
-13      |8      |x
-14      |14     |*
-15      |8      |x
-16      |7      |END
-17      |29     |;
-18      |6      |BEGIN
-19      |8      |x
-20      |10     |:=
-21      |9      |1
-22      |29     |;
-23      |4      |WHILE
-24      |8      |x
-25      |23     |<=
-26      |9      |10
-27      |5      |DO
-28      |6      |BEGIN
-29      |3      |CALL
-30      |8      |square
-31      |29     |;
-32      |11     |!
-33      |8      |sqr
-34      |29     |;
-35      |8      |x
-36      |10     |:=
-37      |8      |x
-38      |16     |+
-39      |9      |1
-40      |7      |END
-41      |7      |END
-42      |28     |.
+  no|      type|src
+----+----------+-----
+   0|       VAR|VAR
+   1|IDENTIFIER|x
+   2|     COMMA|,
+   3|IDENTIFIER|sqr
+   4|     COMMA|,
+   5|IDENTIFIER|temp
+   6| SEMICOLON|;
+   7| PROCEDURE|PROCEDURE
+   8|IDENTIFIER|square
+   9| SEMICOLON|;
+  10|     BEGIN|BEGIN
+  11|IDENTIFIER|sqr
+  12|ASSIGNMENT|:=
+  13|IDENTIFIER|x
+  14|      MULT|*
+  15|IDENTIFIER|x
+  16|       END|END
+  17| SEMICOLON|;
+  18|     BEGIN|BEGIN
+  19|IDENTIFIER|x
+  20|ASSIGNMENT|:=
+  21|    NUMBER|1
+  22| SEMICOLON|;
+  23|     WHILE|WHILE
+  24|IDENTIFIER|x
+  25|        LE|<=
+  26|    NUMBER|10
+  27|        DO|DO
+  28|     BEGIN|BEGIN
+  29|      CALL|CALL
+  30|IDENTIFIER|square
+  31| SEMICOLON|;
+  32|     WRITE|!
+  33|IDENTIFIER|sqr
+  34| SEMICOLON|;
+  35|IDENTIFIER|x
+  36|ASSIGNMENT|:=
+  37|IDENTIFIER|x
+  38|      PLUS|+
+  39|    NUMBER|1
+  40|       END|END
+  41|       END|END
+  42|    PERIOD|.
 ```
 
 ### Parse
