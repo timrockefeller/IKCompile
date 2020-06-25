@@ -100,3 +100,7 @@ output:
 [!!] syntax error: +
 on token 42
 ```
+
+## License
+
+Under GPL-v3 license. All right reserved.
