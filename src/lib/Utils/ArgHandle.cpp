@@ -20,7 +20,7 @@ bool Command::Invoke(vector<string> arglist) {
         arglist.size() <= this->argc &&
         arglist.size() >= this->argc - this->autofill.size()) {  // 检测参数个数是否正确，考虑到无参函数可以无条件运行
         this->argv = arglist;
-        for(int i = arglist.size();i<this->argc;i++){
+        for(size_t i = arglist.size();i<this->argc;i++){
             // 0 1 2 3 4 5
             // A B C(D E F)
             // F E D
@@ -36,7 +36,7 @@ bool Command::Invoke(vector<string> arglist) {
 bool Command::Run() {
     try {
         this->op(argv);
-    } catch (const std::exception& e) {
+    } catch (const std::exception&) {
         return false;
     }
     return true;
@@ -72,7 +72,7 @@ void ArgHandle::Parse(string line) {
         输入:`  Ass    "We Can"  `
         输出:["Ass","We Can"]
     */
-    int _spCur = 0;  // 空格起始位
+    size_t _spCur = 0;  // 空格起始位
     while (_spCur < line.length() && line.at(_spCur) == ' ')
         _spCur++;
     if (_spCur == line.length())

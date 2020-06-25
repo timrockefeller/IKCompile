@@ -10,7 +10,7 @@ class Command {
     std::string cmd;
     std::vector<std::string> argv;
     std::vector<std::string> autofill;
-    int argc;
+    size_t argc;
     std::function<void(std::vector<std::string>)> op;
 
     Command(const Command&) = delete;
