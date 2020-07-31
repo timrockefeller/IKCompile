@@ -13,12 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: cmake mkdir
-      run: mkdir build
-    - name: cmake cd
-      run: cd ./build
     - name: cmake make
-      run: cmake ..
+      run:  mkdir build && cd ./build && cmake ..
     - name: configure
       run: ./configure
     - name: make
