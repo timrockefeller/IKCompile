@@ -16,10 +16,10 @@ jobs:
     - name: cmake make
       run:  mkdir build && cd ./build && cmake ..
     - name: configure
-      run: ./configure
+      run: ./build/configure
     - name: make
-      run: make
+      run: cd build && make
     - name: make check
-      run: make check
+      run: cd build && make check
     - name: make distcheck
-      run: make distcheck
+      run: cd build && make distcheck
