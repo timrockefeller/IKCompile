@@ -1,6 +1,6 @@
 ## IKCompile
 
-[](https://github.com/timrockefeller/IKCompile/workflows/AutoRelease/badge.svg)
+![](https://github.com/timrockefeller/IKCompile/workflows/AutoRelease/badge.svg)
 
 IIK Compile.
 
